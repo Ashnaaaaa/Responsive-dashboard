@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Upload Data - Data Analytics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="logo">DB</div><div><h1>Acme Analytics</h1><div class="muted">Insight Studio</div></div></div>
+      <nav>
+        <a href="index.html" class="nav-link"><i data-feather="home"></i> Dashboard</a>
+        <a href="reports.html" class="nav-link"><i data-feather="bar-chart-2"></i> Reports</a>
+        <a href="users.html" class="nav-link"><i data-feather="users"></i> Users</a>
+        <a href="settings.html" class="nav-link"><i data-feather="settings"></i> Settings</a>
+        <a href="upload.html" class="nav-link active"><i data-feather="upload"></i> Upload Data</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h2>Upload Data</h2>
+        <div class="actions"><div class="profile">AS</div></div>
+      </header>
+
+      <section class="container-grid">
+        <div class="card">
+          <h3>Upload CSV or Excel (.xlsx)</h3>
+          <p>Supported: CSV (with headers) and Excel (.xlsx). The file will be parsed client-side and the dataset will be used by Dashboard & Reports.</p>
+
+          <div class="upload-area">
+            <input id="fileInput" type="file" accept=".csv, .xlsx, .xls" />
+            <div class="upload-actions">
+              <button id="uploadBtn" class="btn">Upload & Parse</button>
+              <button id="previewBtn" class="btn ghost">Preview (no save)</button>
+              <button id="clearStorage" class="btn ghost">Clear stored data</button>
+            </div>
+            <div id="uploadStatus" class="muted">No file selected.</div>
+          </div>
+        </div>
+
+        <div class="card" id="previewCard" style="display:none">
+          <h3>Preview</h3>
+          <div class="table-wrapper" style="max-height:300px;overflow:auto">
+            <table id="previewTable"><thead></thead><tbody></tbody></table>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <!-- parsing libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+  <script src="script.js"></script>
+  <script>feather.replace()</script>
+</body>
+</html>
